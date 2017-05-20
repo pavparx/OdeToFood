@@ -1,4 +1,5 @@
-﻿using OdeToFood.Models;
+﻿using System;
+using OdeToFood.Models;
 using System.Web.Mvc;
 
 namespace OdeToFood.Controllers
@@ -7,6 +8,16 @@ namespace OdeToFood.Controllers
     {
         public ActionResult Index()
         {
+            var controller = RouteData.Values["controller"];
+            var action = RouteData.Values["action"];
+            var id = RouteData.Values["id"];
+
+            var message = String.Format("{0}::{1} {2}", controller, action, id);
+
+            ViewBag.Message = message;
+
+
+
             return View();
         }
 
